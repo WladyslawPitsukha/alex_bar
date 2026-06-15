@@ -2,8 +2,8 @@ import { StaticImageData } from "next/image";
 
 export type PropsMenuPage = {
     id: number;
-    section: string;
-    onclick?: () => void; 
+    name: string;
+    onClick?: () => void; 
     products: {
         id: number;
         name: string;

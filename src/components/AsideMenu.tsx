@@ -1,6 +1,8 @@
 "use client";
 
 import { menu } from "@/constants/menu";
+import { HandleScroll } from "@/utils/handleScroll";
+import AsideFuncItems from "./AsideFuncItems";
 
 export default function AsideMenu() {
 
@@ -12,10 +14,10 @@ export default function AsideMenu() {
             <section className="flex flex-col items-start justify-between h-full py-9 w-13 bg-gray-800 overflow-y-auto transition-all duration-300">
                 <div className="flex flex-col w-full">
                     {menu.map((item, index) => (
-                        <NavFuncItems
+                        <AsideFuncItems
                             key={index}
                             {...item}
-                            isActive={activeSection === item.text}
+                            isActive={activeSection === item.name}
                         />
                     ))}
                 </div>
