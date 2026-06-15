@@ -1,7 +1,5 @@
-import { IconType } from "react-icons";
-
 export type FuncItemsProps = {
-    icon?: IconType;
+    id?: number;
     name: string;
-    onClick: () => void;
+    onClick?: () => void;
 }

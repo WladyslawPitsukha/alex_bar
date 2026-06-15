@@ -5,8 +5,8 @@ import { HandleScroll } from "@/utils/handleScroll";
 import AsideFuncItems from "./AsideFuncItems";
 
 export default function AsideMenu() {
-
     const activeSection = HandleScroll();
+    
     return(
         <aside
             className="flex flex-col sticky top-0 h-screen transition-all duration-300 hover:shadow-xl"
@@ -16,7 +16,8 @@ export default function AsideMenu() {
                     {menu.map((item, index) => (
                         <AsideFuncItems
                             key={index}
-                            {...item}
+                            name={item.name}
+                            onClick={item.onClick}
                             isActive={activeSection === item.name}
                         />
                     ))}

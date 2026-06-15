@@ -2,6 +2,7 @@
 
 import Footer from "@/components/footer";
 import NavBar from "@/components/navbar";
+import AsideMenu from "@/components/AsideMenu";
 import SectionMenu from "@/components/SectionMenu";
 import { menu } from "@/constants/menu";
 
@@ -10,7 +11,7 @@ export default function Home() {
         <>
             <NavBar />
             <main className="flex flex-row items-center w-full">
-                {/* <AsideMenu /> */}
+                <AsideMenu />
                 <div className="flex flex-col items-center gap-2 w-full">
                     {menu.map((section, index) => (
                         <SectionMenu key={index} {...section} />
