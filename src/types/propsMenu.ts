@@ -1,6 +1,9 @@
+import { StaticImageData } from "next/image";
+
 export type PropsMenuPage = {
     id: number;
     section: string;
+    onclick?: () => void; 
     products: {
         id: number;
         name: string;
@@ -11,7 +14,7 @@ export type PropsMenuPage = {
                 text: string;
                 amount: number;
             }[];
-            photos: any[];
+            photos: (StaticImageData | string)[];
         }
     }[]
 }
