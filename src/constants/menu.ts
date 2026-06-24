@@ -1,5 +1,6 @@
 import { PropsMenuPage } from "@/types/propsMenu";
 //TODO: fix import images for menu
+//TODO: FIX THE PROBLEM WITH THE IMAGES, THEY ARE NOT SHOWING UP IN THE MENU PAGE, MAYBE IT'S A PROBLEM WITH NEXT.JS IMAGE OPTIMIZATION OR THE PATHS ARE WRONG. CHECK THE CONSOLE FOR ERRORS AND MAKE SURE THE IMAGES ARE IN THE CORRECT FOLDER AND HAVE THE CORRECT NAMES.
 import Photo1Component1_1 from "../assets/imgs/menu/starters/bruschetta/bruschetta_1.jpg";
 import Photo1Component1_2 from "../assets/imgs/menu/starters/bruschetta/bruschetta_2.jpg";
 import Photo1Component1_3 from "../assets/imgs/menu/starters/bruschetta/bruschetta_3.jpg";
@@ -100,6 +101,7 @@ import Photo5Component5_3 from "../assets/imgs/menu/drinks/beer/beer_3.jpg";
 export const menu: PropsMenuPage[] = [
     {
         id: 1,
+        icon: "MdRestaurantMenu",
         name: "Starters",
         products: [
             {
@@ -200,6 +202,7 @@ export const menu: PropsMenuPage[] = [
     },
     {
         id: 2,
+        icon: MdRestaurantMenu,
         name: "Main Dishes",
         products: [
             {
@@ -297,6 +300,7 @@ export const menu: PropsMenuPage[] = [
     },
     {
         id: 3,
+        icon: MdRestaurantMenu,
         name: "Sides",
         products: [
             {
@@ -389,6 +393,7 @@ export const menu: PropsMenuPage[] = [
     {
         id: 4,
         name: "Desserts",
+        icon: MdRestaurantMenu,
         products: [
             {
                 id: 1,
@@ -448,6 +453,7 @@ export const menu: PropsMenuPage[] = [
     {
         id: 5,
         name: "Drinks",
+        icon: MdRestaurantMenu,
         products: [
             {
                 id: 1,

@@ -1,16 +1,14 @@
 "use client";
 
-import { menu } from "@/constants/menu";
 import { PropsMenuPage } from "@/types/propsMenu";
-import { Props } from "next/script";
 import CardMenu from "./CardMenu";
 
 export default function SectionMenu({
-    id, section, products
+    id, name, products
 }: PropsMenuPage) {
     return(
         <section
-            className="w-full py-12 bg-linear-to-br from-black via-gray-900 to-gray-800"
+            className="w-full py-12 bg-linear-to-br from-black via-gray-900 to-gray-800 px-6"
             id={`section-${id}`}
         >
             <div
@@ -23,7 +21,7 @@ export default function SectionMenu({
                         className="mb-10"
                     >
                         <h2 className="text-4xl font-extrabold text-white drop-shadow-lg mb-2">
-                            {section}
+                            {name}
                         </h2>
                     </div>
                     <div className="w-20 h-1 bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 rounded-full animate-gradient-move"></div>

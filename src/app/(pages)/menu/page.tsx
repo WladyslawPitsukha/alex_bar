@@ -10,9 +10,9 @@ export default function Home() {
     return(
         <>
             <NavBar />
-            <main className="flex flex-row items-center w-full">
+            <main className="flex relative justify-between items-start w-full">
                 <AsideMenu />
-                <div className="flex flex-col items-center gap-2 w-full">
+                <div className="flex flex-col w-full gap-2 ml-64">
                     {menu.map((section, index) => (
                         <SectionMenu key={index} {...section} />
                     ))}

@@ -1,7 +1,11 @@
 import { FuncItemsProps } from "@/types/funcItemsProps";
+import React from 'react';
+//import Image from 'next/image';
 
-
-export default function AsideFuncItems({ name, onClick, isActive }: FuncItemsProps & {isActive: boolean}) {
+export default function AsideFuncItems({ icon, name, onClick, isActive }: FuncItemsProps & {
+    isActive: boolean
+}) {
+    const Icon = icon
     return (
         <article 
             onClick={onClick} 
@@ -11,6 +15,13 @@ export default function AsideFuncItems({ name, onClick, isActive }: FuncItemsPro
                     : 'bg-gray-700 hover:bg-gray-600'
             }`}
         >
+            <div className={`flex items-center justify-center rounded-lg transition-all duration-300 ${
+                isActive ? "bg-white" : "bg-gray-800"
+            } w-10 h-10`}>
+                <Icon className={`w-5 h-5 transition-colors duration-300 ${
+                    isActive ? "text-blue-600" : "text-white"
+                }`} />
+            </div>
             <span className={`text-sm font-medium transition-all duration-300 ${
                 isActive ? "text-white font-bold" : "text-gray-300"
             }`}>
