@@ -101,7 +101,6 @@ import Photo5Component5_3 from "../assets/imgs/menu/drinks/beer/beer_3.jpg";
 export const menu: PropsMenuPage[] = [
     {
         id: 1,
-        icon: "MdRestaurantMenu",
         name: "Starters",
         products: [
             {
@@ -202,7 +201,6 @@ export const menu: PropsMenuPage[] = [
     },
     {
         id: 2,
-        icon: MdRestaurantMenu,
         name: "Main Dishes",
         products: [
             {
@@ -300,7 +298,6 @@ export const menu: PropsMenuPage[] = [
     },
     {
         id: 3,
-        icon: MdRestaurantMenu,
         name: "Sides",
         products: [
             {
@@ -393,7 +390,6 @@ export const menu: PropsMenuPage[] = [
     {
         id: 4,
         name: "Desserts",
-        icon: MdRestaurantMenu,
         products: [
             {
                 id: 1,
@@ -453,7 +449,6 @@ export const menu: PropsMenuPage[] = [
     {
         id: 5,
         name: "Drinks",
-        icon: MdRestaurantMenu,
         products: [
             {
                 id: 1,

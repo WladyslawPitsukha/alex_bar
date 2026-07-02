@@ -1,24 +1,25 @@
-//TODO: make the page with full-component's structure of menu's page
-
 import Footer from "@/components/footer";
 import NavBar from "@/components/navbar";
 import AsideMenu from "@/components/AsideMenu";
 import SectionMenu from "@/components/SectionMenu";
 import { menu } from "@/constants/menu";
 
-export default function Home() {
-    return(
+export default function MenuPage() {
+    return (
         <>
             <NavBar />
-            <main className="flex relative justify-between items-start w-full">
-                <AsideMenu />
-                <div className="flex flex-col w-full gap-2 ml-64">
-                    {menu.map((section, index) => (
-                        <SectionMenu key={index} {...section} />
-                    ))}
+            <main className="min-h-screen bg-neutral-950 text-white">
+                <div className="realtive mx-auto flex w-full gap-8 px-4 py-8 lg:px-8">
+                    <AsideMenu />
+
+                    <div className="flex-1 lg:pl-64 w-full">
+                        {menu.map((section) => (
+                            <SectionMenu key={section.id} {...section} />
+                        ))}
+                    </div>
                 </div>
             </main>
             <Footer />
         </>
-    )
+    );
 }

@@ -1,32 +1,44 @@
 import { FuncItemsProps } from "@/types/funcItemsProps";
-import React from 'react';
-//import Image from 'next/image';
+import { BiFoodMenu } from "react-icons/bi";
 
-export default function AsideFuncItems({ icon, name, onClick, isActive }: FuncItemsProps & {
-    isActive: boolean
-}) {
-    const Icon = icon
+type Props = FuncItemsProps & { isActive: boolean };
+
+export default function AsideFuncItems({
+    name,
+    onClick,
+    isActive,
+}: Props) {
+    const Icon = BiFoodMenu;
+
     return (
-        <article 
-            onClick={onClick} 
-            className={`flex w-full items-center cursor-pointer rounded-lg mx-4 my-2 p-2 transition-all duration-300 transform hover:translate-x-2 ${
-                isActive 
-                    ? 'bg-blue-600 shadow-lg' 
-                    : 'bg-gray-700 hover:bg-gray-600'
+        <button
+            type="button"
+            onClick={onClick}
+            className={`flex w-full items-center gap-3 rounded-3xl px-4 py-3 text-left transition-all duration-300 border border-white/10 shadow-lg ${
+                isActive
+                    ? "bg-linear-to-br from-pink-500 via-yellow-400 to-green-300 text-black shadow-2xl"
+                    : "bg-white/5 text-white hover:bg-white/10"
             }`}
         >
-            <div className={`flex items-center justify-center rounded-lg transition-all duration-300 ${
-                isActive ? "bg-white" : "bg-gray-800"
-            } w-10 h-10`}>
-                <Icon className={`w-5 h-5 transition-colors duration-300 ${
+            <div
+                className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
+                    isActive ? "bg-black/10" : "bg-gray-800"
+                }`}
+            >
+                <Icon
+                className={`h-5 w-5 transition-colors duration-300 ${
                     isActive ? "text-blue-600" : "text-white"
-                }`} />
+                }`}
+                />
             </div>
-            <span className={`text-sm font-medium transition-all duration-300 ${
-                isActive ? "text-white font-bold" : "text-gray-300"
-            }`}>
+
+            <span
+                className={`ml-3 text-sm font-medium transition-all duration-300 ${
+                isActive ? "font-bold text-white" : "text-gray-300"
+                }`}
+            >
                 {name}
             </span>
-        </article>
-    );
-};
+        </button>
+  );
+}
