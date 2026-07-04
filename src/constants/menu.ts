@@ -1,6 +1,6 @@
 import { PropsMenuPage } from "@/types/propsMenu";
-//TODO: fix import images for menu
-//TODO: FIX THE PROBLEM WITH THE IMAGES, THEY ARE NOT SHOWING UP IN THE MENU PAGE, MAYBE IT'S A PROBLEM WITH NEXT.JS IMAGE OPTIMIZATION OR THE PATHS ARE WRONG. CHECK THE CONSOLE FOR ERRORS AND MAKE SURE THE IMAGES ARE IN THE CORRECT FOLDER AND HAVE THE CORRECT NAMES.
+//TODO: add params, which not write from type
+
 import Photo1Component1_1 from "../assets/imgs/menu/starters/bruschetta/bruschetta_1.jpg";
 import Photo1Component1_2 from "../assets/imgs/menu/starters/bruschetta/bruschetta_2.jpg";
 import Photo1Component1_3 from "../assets/imgs/menu/starters/bruschetta/bruschetta_3.jpg";
@@ -106,7 +106,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 1,
                 name: "Bruschetta",
-                price: 18,
+                cost: {
+                    price: 18,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Classic bruschetta with tomatoes, garlic, and basil.",
                     components: [
@@ -126,7 +133,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 2,
                 name: "Quiche",
-                price: 22,
+                cost: {
+                    price: 22,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Mini cheese and spinach quiche.",
                     components: [
@@ -145,7 +159,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 3,
                 name: "Satay Skewers",
-                price: 20,
+                cost: {
+                    price: 20,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Chicken satay skewers with peanut sauce.",
                     components: [
@@ -163,7 +184,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 4,
                 name: "Caprese Salad",
-                price: 16,
+                cost: {
+                    price: 16,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Caprese salad with mozzarella and tomatoes.",
                     components: [
@@ -182,7 +210,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 5,
                 name: "Shrimp Cocktail",
-                price: 19,
+                cost: {
+                    price: 19,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Shrimp cocktail with tangy sauce.",
                     components: [
@@ -206,7 +241,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 1,
                 name: "Grilled Salmon",
-                price: 38,
+                cost: {
+                    price: 38,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Grilled salmon with lemon butter sauce.",
                     components: [
@@ -224,7 +266,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 2,
                 name: "Beef Steak",
-                price: 34,
+                cost: {
+                    price: 34,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Beef steak with peppercorn sauce.",
                     components: [
@@ -242,7 +291,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 3,
                 name: "Vegetarian Lasagna",
-                price: 29,
+                cost: {
+                    price: 29,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Vegetarian lasagna with ricotta and spinach.",
                     components: [
@@ -261,7 +317,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 4,
                 name: "Chicken Curry",
-                price: 32,
+                cost: {
+                    price: 32,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Chicken curry with jasmine rice.",
                     components: [
@@ -279,7 +342,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 5,
                 name: "Pork Schnitzel",
-                price: 36,
+                cost: {
+                    price: 36,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Pork schnitzel with potato salad.",
                     components: [
@@ -303,7 +373,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 1,
                 name: "French Fries",
-                price: 12,
+                cost: {
+                    price: 12,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "French fries with sea salt.",
                     components: [
@@ -320,7 +397,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 2,
                 name: "Steamed Vegetables",
-                price: 14,
+                cost: {
+                    price: 14,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Steamed vegetables.",
                     components: [
@@ -338,7 +422,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 3,
                 name: "Garlic Bread",
-                price: 13,
+                cost: {
+                    price: 13,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Garlic bread slices.",
                     components: [
@@ -354,7 +445,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 4,
                 name: "Coleslaw",
-                price: 15,
+                cost: {
+                    price: 15,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Coleslaw salad.",
                     components: [
@@ -371,7 +469,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 5,
                 name: "Onion Rings",
-                price: 13,
+                cost: {
+                    price: 13,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Onion rings with dip.",
                     components: [
@@ -394,7 +499,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 1,
                 name: "Tiramisu",
-                price: 16,
+                cost: {
+                    price: 16,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Classic tiramisu with cocoa.",
                     components: [
@@ -413,7 +525,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 2,
                 name: "Chocolate Lava Cake",
-                price: 15,
+                cost: {
+                    price: 15,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Chocolate lava cake with ice cream.",
                     components: [
@@ -430,7 +549,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 3,
                 name: "Panna Cotta",
-                price: 14,
+                cost: {
+                    price: 14,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Panna cotta with berry sauce.",
                     components: [
@@ -453,7 +579,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 1,
                 name: "Orange Juice",
-                price: 10,
+                cost: {
+                    price: 10,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Freshly squeezed orange juice.",
                     components: [
@@ -469,7 +602,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 2,
                 name: "Mojito",
-                price: 12,
+                cost: {
+                    price: 12,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Classic mojito cocktail.",
                     components: [
@@ -488,7 +628,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 3,
                 name: "Espresso",
-                price: 9,
+                cost: {
+                    price: 9,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Espresso coffee.",
                     components: [
@@ -504,7 +651,14 @@ export const menu: PropsMenuPage[] = [
             {
                 name: "Lemonade",
                 id: 4,
-                price: 11,
+                cost: {
+                    price: 11,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Homemade lemonade.",
                     components: [
@@ -522,7 +676,14 @@ export const menu: PropsMenuPage[] = [
             {
                 id: 5,
                 name: "Craft Beer",
-                price: 13,
+                cost: {
+                    price: 13,
+                },
+                detailParams: {
+                    available: true,
+                    featured: false,
+                    prepTimeMin: 15,
+                },
                 info: {
                     description: "Craft beer (0.5L).",
                     components: [
