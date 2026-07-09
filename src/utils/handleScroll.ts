@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 
@@ -7,20 +7,24 @@ export function HandleScroll() {
 
     useEffect(() => {
         const handleScrollElem = () => {
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll<HTMLElement>('section[id^="section-"]');
             let currentSec = "Home";
-            sections.forEach(section => {
+
+            sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 50) {
-                    currentSec = section.getAttribute('id') || 'Home';
+                
+                if (window.scrollY >= sectionTop - 80) {
+                    currentSec = section.getAttribute("id") || "Home";
                 }
             });
+
             setActiveSection(currentSec);
         };
 
-        window.addEventListener('scroll', handleScrollElem);
-        return () => window.removeEventListener('scroll', handleScrollElem);
+        handleScrollElem();
+        window.addEventListener("scroll", handleScrollElem);
+        return () => window.removeEventListener("scroll", handleScrollElem);
     }, []);
 
     return activeSection;
-};
+}
