@@ -14,7 +14,7 @@ export default function AsideFuncItems({
         <button
             type="button"
             onClick={onClick}
-            className={`flex w-full items-center gap-3 rounded-3xl px-4 py-3 text-left transition-all duration-300 border border-white/10 shadow-lg ${
+            className={`flex w-full cursor-pointer items-center gap-3 rounded-3xl px-4 py-3 text-left transition-all duration-300 border border-white/10 shadow-lg ${
                 isActive
                     ? "bg-linear-to-br from-pink-500 via-yellow-400 to-green-300 text-black shadow-2xl"
                     : "bg-white/5 text-white hover:bg-white/10"

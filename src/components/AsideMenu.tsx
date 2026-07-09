@@ -18,7 +18,7 @@ export default function AsideMenu() {
     return (
         <aside className="fixed left-0 top-0 z-30 hidden h-screen w-64 lg:flex justify-center items-center">
             <div className="flex min-h-full w-full flex-col justify-center items-center overflow-y-auto rounded-3xl border border-white/10 bg-linear-to-br from-black via-gray-900 to-gray-800 px-4 py-6 shadow-2xl backdrop-blur">
-                <div className="space-y-6 w-full max-w-[260px]">
+                <div className="space-y-6 w-full max-w-65">
                     <div className="text-center">
                         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-400">
                             Menu
