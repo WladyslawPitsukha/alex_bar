@@ -25,7 +25,7 @@ export default function AsideMenu() {
                         </p>
                         <div className="mt-4 h-1 w-20 mx-auto rounded-full bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 animate-gradient-move" />
                     </div>
-
+                    
                     {menu.map((item) => (
                         <AsideFuncItems
                             key={item.id}

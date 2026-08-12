@@ -11,7 +11,7 @@ export type MenuProps = {
                 text: string;
                 amount: number;
             }[];
-            photos: any[];
+            photos: string[];
         }
     }[]
 }

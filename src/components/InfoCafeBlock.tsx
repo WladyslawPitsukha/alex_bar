@@ -33,7 +33,7 @@ export default function InfoCafeBlock({
 
     return (
         <article
-            className={`flex flex-col gap-8 p-8 rounded-2xl shadow-2xl bg-gradient-to-br ${gradient} animate-gradient-move relative overflow-hidden transition-transform hover:scale-[1.02] hover:shadow-3xl`}
+            className={`flex flex-col gap-8 p-8 rounded-2xl shadow-2xl bg-linear-to-br ${gradient} animate-gradient-move relative overflow-hidden transition-transform hover:scale-[1.02] hover:shadow-3xl`}
             key={id}
         >
             <div className="absolute inset-0 bg-black/50 rounded-2xl pointer-events-none" />
@@ -42,7 +42,7 @@ export default function InfoCafeBlock({
                 <h2 className="text-3xl font-extrabold text-white tracking-tight drop-shadow-lg">
                     {title}
                 </h2>
-                <span className="w-16 h-1 bg-gradient-to-r from-pink-400 via-yellow-400 to-green-400 rounded-full my-2 animate-gradient-move" />
+                <span className="w-16 h-1 bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 rounded-full my-2 animate-gradient-move" />
                 <h3 className="text-lg font-semibold text-white/80">{city}</h3>
             </div>
 

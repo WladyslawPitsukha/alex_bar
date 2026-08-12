@@ -1,4 +1,4 @@
-import { ClientProps } from "@/types/clientProps";
+import { ClientProps } from "@/types/aboutProps";
 
 export const clients: ClientProps[] = [
     {

@@ -40,5 +40,5 @@ export default function AsideFuncItems({
                 {name}
             </span>
         </button>
-  );
+    );
 }

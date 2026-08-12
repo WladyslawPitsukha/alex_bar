@@ -45,11 +45,13 @@ export default function Lightbox({
                 >
                     ✕
                 </button>
-                <div className={`relative rounded-lg overflow-hidden bg-gradient-to-br ${gradient} animate-gradient-move shadow-2xl`}>
+                <div className={`relative rounded-lg overflow-hidden bg-linear-to-br ${gradient} animate-gradient-move shadow-2xl`}>
                     <Image src={photo.photo} alt={photo.title} width={1200} height={800} className="object-contain w-full h-[80vh]" />
-                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 text-white">
+                    
+                    <div className="absolute inset-x-0 bottom-0 p-4 bg-linear-to-t from-black/70 text-white">
                         <div className="flex items-center justify-between">
                             <span className="text-sm opacity-80">{photo.title}</span>
+                            
                             <div className="flex gap-2">
                                 <button onClick={onPrev} className="p-2 rounded-md bg-white/10 hover:bg-white/20">◀</button>
                                 <button onClick={onNext} className="p-2 rounded-md bg-white/10 hover:bg-white/20">▶</button>

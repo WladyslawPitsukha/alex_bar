@@ -30,6 +30,7 @@ export default function CardMenu(product: Product) {
             className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-black/60 text-left shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.9)] focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/80"
         >
             <div className="absolute inset-0 bg-linear-to-br from-pink-500/5 via-yellow-400/5 to-green-300/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+            
             <div className="relative z-10 p-4 sm:p-5">
                 {photos.length > 0 && (
                     <div className="mb-4 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-inner">
@@ -41,6 +42,7 @@ export default function CardMenu(product: Product) {
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
+
                         {photos.length > 1 && (
                             <div className="grid grid-cols-2 gap-2 bg-black/30 p-2.5">
                                 {photos.slice(1, 3).map((photo, idx) => (
@@ -103,6 +105,7 @@ export default function CardMenu(product: Product) {
                                     <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50 sm:text-xs">
                                         Extra description
                                     </p>
+
                                     <p className="leading-relaxed text-white/75">
                                         {shortDescription}
                                     </p>
@@ -110,26 +113,24 @@ export default function CardMenu(product: Product) {
                             )}
 
                             <div className="grid grid-cols-2 gap-2 text-[11px] sm:grid-cols-4">
-                                <div className="rounded-xl border border-white/10 bg-black/30 px-2 py-2">
-                                    <p className="text-white/40">Calories</p>
-                                    <p className="font-semibold text-white">{detailParams.calories}</p>
-                                </div>
-                                <div className="rounded-xl border border-white/10 bg-black/30 px-2 py-2">
-                                    <p className="text-white/40">Weight</p>
-                                    <p className="font-semibold text-white">{detailParams.weightGrams} g</p>
-                                </div>
-                                <div className="rounded-xl border border-white/10 bg-black/30 px-2 py-2">
-                                    <p className="text-white/40">Spicy</p>
-                                    <p className="font-semibold text-white">Level {detailParams.spicyLevel}</p>
-                                </div>
-                                <div className="rounded-xl border border-white/10 bg-black/30 px-2 py-2">
-                                    <p className="text-white/40">Dietary</p>
-                                    <p className="font-semibold text-white">
-                                        {dietary?.vegetarian ? "Veg" : "Std"}
-                                        {dietary?.vegan ? " / Vegan" : ""}
-                                        {dietary?.glutenFree ? " / GF" : ""}
-                                    </p>
-                                </div>
+                                {[
+                                    {nameBlock: "Calories", paramBlock: detailParams.calories},
+                                    {nameBlock: "Weight", paramBlock: `${detailParams.weightGrams} g`},
+                                    {nameBlock: "Spicy", paramBlock: `Level: ${detailParams.spicyLevel}`},
+                                    {nameBlock: "Dietary", paramBlock: `
+                                            ${dietary?.vegetarian ? "Veg" : "Std"}
+                                            ${dietary?.vegan ? " / Vegan" : ""}
+                                            ${dietary?.glutenFree ? " / GF" : ""}
+                                        `}
+                                ].map((block) => (
+                                    <div 
+                                        className="rounded-xl border border-white/10 bg-black/30 px-2 py-2"
+                                        key={block.nameBlock.toLowerCase()}
+                                    >
+                                        <p className="text-white/40">{block.nameBlock}</p>
+                                        <p className="font-semibold text-white">{detailParams.calories}</p>
+                                    </div>
+                                ))}
                             </div>
 
                             {detailParams.allergens.length > 0 && (

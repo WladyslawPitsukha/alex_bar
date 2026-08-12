@@ -30,7 +30,7 @@ export default function MapBlock() {
 
     return (
         <section className="flex flex-col items-center gap-8 w-full">
-            <div className="relative w-[400px] h-[300px] bg-gray-100 rounded-xl border border-gray-300 shadow-md">
+            <div className="relative w-100 h-75 bg-gray-100 rounded-xl border border-gray-300 shadow-md">
                 <svg viewBox="0 0 400 300" className="w-full h-full">
                     <rect x="0" y="0" width="400" height="300" fill="#f3f4f6" />
                     <ellipse cx="200" cy="150" rx="160" ry="110" fill="#e5e7eb" />
@@ -61,8 +61,8 @@ export default function MapBlock() {
                 </svg>
             </div>
             {modalOpen && (
-                <div className="fixed inset-0 bg-opacity-40 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-xl shadow-xl p-8 min-w-[300px] flex flex-col gap-4 relative">
+                <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-xl shadow-xl p-8 min-w-75 flex flex-col gap-4 relative">
                         <button
                             className="absolute top-2 right-2 text-gray-500 hover:text-black text-xl"
                             onClick={() => setModalOpen(false)}

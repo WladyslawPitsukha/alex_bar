@@ -23,8 +23,8 @@ export function GridPhotoBlock({
             onClick={onClick}
             title={title}
             className={`
-                group overflow-hidden rounded-2xl w-[230px] h-[130px] md:w-[230px] md:h-[150px]
-                bg-gradient-to-br ${gradient} animate-gradient-move shadow-lg border-2 border-white/20
+                group overflow-hidden rounded-2xl w-57.5 h-32.5 md:w-57.5 md:h-37.5
+                bg-linear-to-br ${gradient} animate-gradient-move shadow-lg border-2 border-white/20
                 hover:scale-105 transition transform relative
             `}
         >
