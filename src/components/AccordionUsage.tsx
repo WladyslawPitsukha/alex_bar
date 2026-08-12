@@ -64,8 +64,9 @@ export default function AccordionUsage({
                     {title}
                 </Typography>
             </AccordionSummary>
+            
             <AccordionDetails
-                className={`absolute left-0 top-full mt-2 bg-gradient-to-br ${gradient} animate-gradient-move rounded-xl shadow-2xl z-50 min-w-[180px] p-1 border border-white/20 flex flex-col gap-1`}
+                className={`absolute left-0 top-full mt-2 bg-linear-to-br ${gradient} animate-gradient-move rounded-xl shadow-2xl z-50 min-w-45 p-1 border border-white/20 flex flex-col gap-1`}
             >
                 {select.map((obj) =>
                     isPageLink(obj.link) ? (

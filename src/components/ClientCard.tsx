@@ -1,4 +1,4 @@
-import { ClientProps } from "@/types/clientProps";
+import { ClientProps } from "@/types/aboutProps";
 
 export default function ClientCard({
     id, desc, comments
@@ -9,7 +9,7 @@ export default function ClientCard({
     return (
         <div
             key={id}
-            className="flex flex-col gap-2 p-4 rounded-xl shadow-lg bg-black/40 border border-white/20 max-w-[390px] max-h-[160px] backdrop-blur-sm"
+            className="flex flex-col gap-2 p-4 rounded-xl shadow-lg bg-black/40 border border-white/20 max-w-97.5 max-h-40 backdrop-blur-sm"
         >
             <div className="flex items-center justify-between">
                 <span className="font-bold text-white text-base">{clientName}</span>

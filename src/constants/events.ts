@@ -20,17 +20,17 @@ export const events: EventProps[] = [
             {
                 id: 1,
                 src: NorvegianFoodFest1,
-                alt: "Traditional Norwegian dishes display"
+                alt: "Traditional Norwegian dishes display",
             },
             {
                 id: 2,
                 src: NorvegianFoodFest2,
-                alt: "Chef preparing Norwegian specialties"
+                alt: "Chef preparing Norwegian specialties",
             },
             {
                 id: 3,
                 src: NorvegianFoodFest3,
-                alt: "Festival atmosphere with dining guests"
+                alt: "Festival atmosphere with dining guests",
             }
         ]
     },

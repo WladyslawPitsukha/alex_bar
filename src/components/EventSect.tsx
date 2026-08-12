@@ -2,9 +2,7 @@
 
 import { events } from "@/constants/events";
 import React, { useState } from "react";
-import SectionHeader from "./SectionHeader";
 import { EventBlock } from "./EventBlock";
-
 
 export default function EventSect(): React.JSX.Element {
     const [page, setPage] = useState<number>(1);
@@ -21,66 +19,63 @@ export default function EventSect(): React.JSX.Element {
 
     return (
         <section 
-            className="bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white py-12 min-h-[60vh] w-full"
+            className="w-full bg-black text-white py-16 px-4 md:px-8 lg:px-12"
             id="events"
         >
-            <SectionHeader title={`Interactions & Events`} />
-            <div className="flex flex-row flex-wrap items-start justify-center gap-10">
-                {current.map((event, index) => (
-                    <EventBlock
-                        key={event.id}
-                        {...event}
-                        gradientIndex={index}
-                    />
-                ))}
-            </div>
-            <div className="mt-10 flex items-center justify-center gap-3">
-                <button
-                    onClick={prev}
-                    disabled={page === 1}
-                    className="px-4 py-2 rounded-full bg-gradient-to-r from-pink-400 to-yellow-400 text-black font-bold shadow-lg hover:from-yellow-400 hover:to-pink-400 transition-all disabled:opacity-40 cursor-pointer"
-                    aria-label="Previous page"
-                >
-                    Prev
-                </button>
-                <div className="flex items-center gap-2">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                        <button
-                            key={p}
-                            onClick={() => go(p)}
-                            aria-current={p === page}
-                            className={`px-4 py-2 rounded-full font-bold shadow-md transition-all ${
-                                p === page
-                                    ? "bg-gradient-to-r from-blue-400 to-green-400 text-black scale-110"
-                                    : "bg-white/20 text-white hover:bg-white/40"
-                            }`}
-                        >
-                            {p}
-                        </button>
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="mb-12">
+                    <p className="text-white/60 text-sm font-semibold mb-2 uppercase tracking-widest">Events</p>
+                    <h2 className="text-4xl md:text-5xl font-black tracking-tight">Interactions & Events</h2>
+                    <p className="text-white/70 text-lg mt-4 max-w-2xl">Celebrate with us at our latest events and special occasions.</p>
+                </div>
+
+                {/* Events Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    {current.map((event) => (
+                        <EventBlock key={event.id} {...event} />
                     ))}
                 </div>
-                <button
-                    onClick={next}
-                    disabled={page === totalPages}
-                    className="px-4 py-2 rounded-full bg-gradient-to-r from-pink-400 to-yellow-400 text-black font-bold shadow-lg hover:from-yellow-400 hover:to-pink-400 transition-all disabled:opacity-40 cursor-pointer"
-                    aria-label="Next page"
-                >
-                    Next
-                </button>
+
+                {/* Pagination */}
+                <div className="flex items-center justify-center gap-3 border-t border-white/10 pt-8">
+                    <button
+                        onClick={prev}
+                        disabled={page === 1}
+                        className="px-4 py-2 rounded-lg border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                        aria-label="Previous page"
+                    >
+                        ← Prev
+                    </button>
+                    <div className="flex items-center gap-2">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                            <button
+                                key={p}
+                                onClick={() => go(p)}
+                                aria-current={p === page}
+                                className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                                    p === page
+                                        ? "bg-white/20 border border-white/40 text-white"
+                                        : "text-white/70 hover:bg-white/5"
+                                }`}
+                            >
+                                {p}
+                            </button>
+                        ))}
+                    </div>
+                    <button
+                        onClick={next}
+                        disabled={page === totalPages}
+                        className="px-4 py-2 rounded-lg border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                        aria-label="Next page"
+                    >
+                        Next →
+                    </button>
+                </div>
+                <div className="mt-6 text-center text-sm text-white/50">
+                    Page {page} of {totalPages}
+                </div>
             </div>
-            <div className="mt-6 text-center text-base text-white/70 font-semibold">
-                Showing {Math.min(total, start + 1)} - {Math.min(total, start + pageSize)} of {total} events
-            </div>
-            <style jsx global>{`
-                @keyframes gradient-move {
-                    0% { background-position: 0% 50%; }
-                    100% { background-position: 100% 50%; }
-                }
-                .animate-gradient-move {
-                    background-size: 200% 200%;
-                    animation: gradient-move 6s ease-in-out infinite alternate;
-                }
-            `}</style>
         </section>
     );
 }

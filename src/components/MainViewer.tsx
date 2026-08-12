@@ -18,7 +18,7 @@ export default function MainViewer({
 }) {
     const gradient = cardGradients[(photo.id - 1) % cardGradients.length];
     return (
-        <div className={`relative w-[460px] h-[360px] md:w-[600px] md:h-[420px] rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} animate-gradient-move flex items-center justify-center shadow-2xl`}>
+        <div className={`relative w-115 h-90 md:w-150 md:h-105 rounded-2xl overflow-hidden bg-linear-to-br ${gradient} animate-gradient-move flex items-center justify-center shadow-2xl`}>
             <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-2xl" />
             <IconButton onClick={onPrev} aria="previous">
                 <ArrowBackIosNewIcon />

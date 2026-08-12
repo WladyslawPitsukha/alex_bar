@@ -1,4 +1,3 @@
-//TODO: add layout full-component's details of menu's page
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";

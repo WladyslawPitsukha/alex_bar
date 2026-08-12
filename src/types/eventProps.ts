@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type EventProps = {
     images: ImageEventProps[];
     id: number;
@@ -8,6 +10,6 @@ export type EventProps = {
 
 export type ImageEventProps = {
     id: number;
-    src: any;
+    src: string | StaticImageData;
     alt: string;
 }
