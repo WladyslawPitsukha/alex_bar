@@ -5,6 +5,7 @@ import { getAvarageRating } from "@/utils/rating";
 export const cafes: CafeInfoProps[] = [
     {
         id: 1,
+        slug: "warsaw",
         title: "Alex Bar Main",
         info: {
             description: "The flagship Alex Bar in the heart of Warsaw, known for its vibrant atmosphere and signature cocktails.",
@@ -48,6 +49,7 @@ export const cafes: CafeInfoProps[] = [
     },
     {
         id: 2,
+        slug: "gdansk",
         title: "Alex Bar Gdansk",
         info: {
             description: "A cozy spot near the old town, offering local brews and sea-inspired snacks.",
@@ -90,6 +92,7 @@ export const cafes: CafeInfoProps[] = [
     },
     {
         id: 3,
+        slug: "krakow",
         title: "Alex Bar Krakow",
         info: {
             description: "Historic charm meets modern taste in the heart of Krakow’s main square.",

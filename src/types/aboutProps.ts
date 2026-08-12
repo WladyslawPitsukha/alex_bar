@@ -1,8 +1,6 @@
-import { CommonProps } from "@mui/material/OverridableComponent";
-import { ClientProps } from "./clientProps";
-
 export type CafeInfoProps = {
     id: number;
+    slug: string;
     title: string;
     info: {
         description: string;
@@ -25,5 +23,17 @@ export type CafeInfoProps = {
         days: string;
         hours: string;
     };
-    comments?: ClientProps[];
+    comments?: {
+        id: number;
+        desc: {
+            en: string;
+            clientName: string;
+        };
+        comments: {
+            id: number;
+            rating: number;
+            text: string;
+            date: string;
+        }
+    }[];
 }
