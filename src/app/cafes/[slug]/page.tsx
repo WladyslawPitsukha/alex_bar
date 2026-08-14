@@ -1,6 +1,8 @@
 import { cafes } from "@/constants/cafes";
 import { getNameFromSlug } from "@/utils/getNameSlug";
 import { notFound } from "next/navigation";
+import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -27,75 +29,148 @@ export default async function CafePage({ params }: Props) {
     const displayName = getNameFromSlug(cafe.slug ?? cafe.city);
 
     return (
-        <div className="min-h-screen bg-white text-slate-900">
-            <header className="bg-slate-900 p-10 text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-yellow-300">
-                Alex Bar
-                </p>
-                <h1 className="mt-4 text-4xl font-bold">{cafe.title}</h1>
-                <h2 className="mt-2 text-2xl text-slate-200">{cafe.city}</h2>
-                <p className="mt-2 text-sm text-slate-300">{displayName}</p>
-            </header>
-
-            <main className="mx-auto max-w-6xl p-8">
-                <div className="grid gap-8 md:grid-cols-2">
-                <section className="rounded-2xl bg-slate-100 p-6">
-                    <h3 className="text-2xl font-bold">About</h3>
-                    <p className="mt-4 text-slate-700">{cafe.info.description}</p>
-                    <p className="mt-4 text-slate-700">{cafe.info.moreDesc}</p>
-                    <p className="mt-4 text-slate-700">{cafe.info.coolFacts}</p>
-                </section>
-
-                <section className="rounded-2xl bg-slate-100 p-6">
-                    <h3 className="text-2xl font-bold">Details</h3>
-                    {[
-                        { label: "Address", value: cafe.address },
-                        { label: "Hours", value: cafe.time.hours },
-                        { label: "Rating", value: `${cafe.info.stars} ⭐` },
-                        { label: "Phone", value: cafe.connection.phone },
-                        { label: "Email", value: cafe.connection.email },
-                    ].map((item) => (
-                        <p key={item.label} className="mt-4 text-slate-700">
-                            <span className="font-semibold text-slate-900">{item.label}:</span>{" "}
-                            {item.value}
+        <>
+            <NavBar />
+            <main className="min-h-screen bg-black text-white pt-20">
+                {/* Hero Header */}
+                <div className="relative w-full bg-gradient-to-br from-black via-gray-900 to-black py-16 px-6 md:px-16 lg:px-24">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="inline-block px-4 py-2 rounded-full bg-green-400/30 text-green-300 text-xs font-bold tracking-widest border border-green-400/50 mb-6">
+                            ● ALEX BAR
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-tight">
+                            {cafe.title}
+                        </h1>
+                        
+                        <p className="text-xl md:text-2xl text-white/80 mb-2">
+                            {cafe.city}
                         </p>
-                    ))}
-                </section>
+
+                        <p className="text-lg text-white/60 mb-8">
+                            {displayName}
+                        </p>
+
+                        <div className="flex items-center gap-3 text-yellow-400">
+                            <span className="text-2xl">★★★★★</span>
+                            <span className="text-white text-lg font-semibold">{cafe.info.stars.toFixed(1)} Rating</span>
+                        </div>
+                    </div>
                 </div>
 
-                <section className="mt-10">
-                    <h3 className="text-2xl font-bold">Socials</h3>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                        {cafe.socials?.map((social) => (
-                            <a
-                                key={social.id}
-                                href={social.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-full bg-slate-900 px-4 py-2 text-sm text-white hover:bg-slate-700"
-                            >
-                                {social.labelText}
-                            </a>
-                        ))}
-                    </div>
-                </section>
+                {/* Quick Info Grid */}
+                <div className="bg-black py-16 px-6 md:px-16 lg:px-24">
+                    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
+                            <p className="text-white/60 text-sm font-semibold mb-3 uppercase tracking-widest">📍 Location</p>
+                            <p className="text-2xl font-bold mb-2">{cafe.city}</p>
+                            <p className="text-white/70">{cafe.address}</p>
+                        </div>
 
-                <section className="mt-10">
-                    <h3 className="text-2xl font-bold">Reviews</h3>
-                    <div className="mt-4 grid gap-4 md:grid-cols-2">
-                        {cafe.comments?.slice(0, 4).map((comment) => (
-                            <div
-                                key={comment.id}
-                                className="rounded-xl border border-slate-200 p-4"
-                            >
-                                <p className="font-semibold">{comment.desc.clientName}</p>
-                                <p className="mt-1 text-yellow-600">⭐ {comment.comments.rating}</p>
-                                <p className="mt-2 text-slate-700">{comment.comments.text}</p>
-                            </div>
-                        ))}
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
+                            <p className="text-white/60 text-sm font-semibold mb-3 uppercase tracking-widest">🕒 Hours</p>
+                            <p className="text-2xl font-bold mb-2">{cafe.time.hours}</p>
+                            <p className="text-white/70">{cafe.time.days}</p>
+                        </div>
+
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
+                            <p className="text-white/60 text-sm font-semibold mb-3 uppercase tracking-widest">📞 Contact</p>
+                            <p className="text-lg font-bold mb-2">{cafe.connection.phone}</p>
+                            <p className="text-white/70 text-sm">{cafe.connection.email}</p>
+                        </div>
                     </div>
-                </section>
+
+                    {/* Divider */}
+                    <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
+
+                    {/* About Section */}
+                    <div className="max-w-6xl mx-auto mb-16">
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
+                            About This Location
+                        </h2>
+                        
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+                                <h3 className="text-2xl font-bold mb-4 bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 bg-clip-text text-transparent">
+                                    Description
+                                </h3>
+                                <p className="text-white/80 leading-relaxed mb-6">
+                                    {cafe.info.description}
+                                </p>
+                                <p className="text-white/70 leading-relaxed">
+                                    {cafe.info.moreDesc}
+                                </p>
+                            </div>
+
+                            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+                                <h3 className="text-2xl font-bold mb-4 bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 bg-clip-text text-transparent">
+                                    Fun Fact
+                                </h3>
+                                <p className="text-white/80 leading-relaxed text-lg italic">
+                                    "{cafe.info.coolFacts}"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
+
+                    {/* Socials Section */}
+                    <div className="max-w-6xl mx-auto mb-16">
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
+                            Follow Us
+                        </h2>
+                        <div className="flex flex-wrap gap-4">
+                            {cafe.socials?.map((social, idx) => {
+                                const gradients = [
+                                    "from-pink-500 via-red-400 to-yellow-300",
+                                    "from-blue-500 via-cyan-400 to-green-300",
+                                ];
+                                const gradient = gradients[idx % gradients.length];
+                                return (
+                                    <a
+                                        key={social.id}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`px-6 py-3 rounded-full bg-gradient-to-br ${gradient} text-black font-bold hover:scale-105 hover:shadow-lg transition-all shadow-md`}
+                                    >
+                                        {social.labelText}
+                                    </a>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
+
+                    {/* Reviews Section */}
+                    <div className="max-w-6xl mx-auto">
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
+                            Guest Reviews
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {cafe.comments?.slice(0, 4).map((comment) => (
+                                <div
+                                    key={comment.id}
+                                    className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-white/20 hover:bg-white/10 transition"
+                                >
+                                    <div className="flex items-start justify-between mb-3">
+                                        <p className="font-bold text-lg">{comment.desc.clientName}</p>
+                                        <span className="text-yellow-400 font-bold">⭐ {comment.comments.rating}</span>
+                                    </div>
+                                    <p className="text-white/70 leading-relaxed">
+                                        "{comment.comments.text}"
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </main>
-        </div>
+            <Footer />
+        </>
     );
 }
