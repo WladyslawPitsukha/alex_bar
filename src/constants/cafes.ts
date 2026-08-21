@@ -5,50 +5,6 @@ import { getAvarageRating } from "@/utils/rating";
 export const cafes: CafeInfoProps[] = [
     {
         id: 1,
-        slug: "warsaw",
-        title: "Alex Bar Main",
-        info: {
-            description: "The flagship Alex Bar in the heart of Warsaw, known for its vibrant atmosphere and signature cocktails.",
-            moreDesc: "Spacious, modern, and always buzzing. Perfect for both casual meetups and special occasions.",
-            coolFacts: "Where Warsaw meets for a good time!",
-            stars: getAvarageRating(
-                clients.filter(client =>
-                    client.desc.en.includes("Warsaw")
-                ),
-                "Warsaw"
-            ),
-        },
-        city: "Warsaw",
-        address: "Nowy Świat 10, Warsaw",
-        connection: {
-            phone: "+48 22 123 45 67",
-            email: "warsaw@alexbar.com",
-        },
-        socials: [
-            { 
-                id: 1, 
-                labelText: "Instagram", 
-                href: "https://instagram.com/alexbarwarsaw" 
-
-            },
-            { 
-                id: 2, 
-                labelText: "Facebook", 
-                href: "https://facebook.com/alexbarwarsaw" 
-            },
-        ],
-        time: {
-            days: "Mon–Sun",
-            hours: "08:00–01:00",
-        },
-        comments: clients.filter(client =>
-            ["Warsaw", "Lodz", "Poznan", "Katowice", "Szczecin"].some(city =>
-                client.desc.en.includes(city)
-            )
-        ),
-    },
-    {
-        id: 2,
         slug: "gdansk",
         title: "Alex Bar Gdansk",
         info: {
@@ -91,7 +47,7 @@ export const cafes: CafeInfoProps[] = [
         ),
     },
     {
-        id: 3,
+        id: 2,
         slug: "krakow",
         title: "Alex Bar Krakow",
         info: {
