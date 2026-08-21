@@ -33,7 +33,7 @@ export default async function CafePage({ params }: Props) {
             <NavBar />
             <main className="min-h-screen bg-black text-white pt-20">
                 {/* Hero Header */}
-                <div className="relative w-full bg-gradient-to-br from-black via-gray-900 to-black py-16 px-6 md:px-16 lg:px-24">
+                <div className="relative w-full bg-linear-to-br from-black via-gray-900 to-black py-16 px-6 md:px-16 lg:px-24">
                     <div className="max-w-6xl mx-auto">
                         <div className="inline-block px-4 py-2 rounded-full bg-green-400/30 text-green-300 text-xs font-bold tracking-widest border border-green-400/50 mb-6">
                             ● ALEX BAR
@@ -58,7 +58,6 @@ export default async function CafePage({ params }: Props) {
                     </div>
                 </div>
 
-                {/* Quick Info Grid */}
                 <div className="bg-black py-16 px-6 md:px-16 lg:px-24">
                     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
@@ -80,10 +79,8 @@ export default async function CafePage({ params }: Props) {
                         </div>
                     </div>
 
-                    {/* Divider */}
                     <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
 
-                    {/* About Section */}
                     <div className="max-w-6xl mx-auto mb-16">
                         <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
                             About This Location
@@ -107,16 +104,14 @@ export default async function CafePage({ params }: Props) {
                                     Fun Fact
                                 </h3>
                                 <p className="text-white/80 leading-relaxed text-lg italic">
-                                    "{cafe.info.coolFacts}"
+                                    `${cafe.info.coolFacts}`
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Divider */}
                     <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
 
-                    {/* Socials Section */}
                     <div className="max-w-6xl mx-auto mb-16">
                         <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
                             Follow Us
@@ -134,7 +129,7 @@ export default async function CafePage({ params }: Props) {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`px-6 py-3 rounded-full bg-gradient-to-br ${gradient} text-black font-bold hover:scale-105 hover:shadow-lg transition-all shadow-md`}
+                                        className={`px-6 py-3 rounded-full bg-linear-to-br ${gradient} text-black font-bold hover:scale-105 hover:shadow-lg transition-all shadow-md`}
                                     >
                                         {social.labelText}
                                     </a>
@@ -143,10 +138,8 @@ export default async function CafePage({ params }: Props) {
                         </div>
                     </div>
 
-                    {/* Divider */}
                     <div className="max-w-6xl mx-auto h-px bg-linear-to-r from-transparent via-white/20 to-transparent mb-16"></div>
 
-                    {/* Reviews Section */}
                     <div className="max-w-6xl mx-auto">
                         <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
                             Guest Reviews
@@ -162,7 +155,7 @@ export default async function CafePage({ params }: Props) {
                                         <span className="text-yellow-400 font-bold">⭐ {comment.comments.rating}</span>
                                     </div>
                                     <p className="text-white/70 leading-relaxed">
-                                        "{comment.comments.text}"
+                                        `${comment.comments.text}`
                                     </p>
                                 </div>
                             ))}
