@@ -1,107 +1,36 @@
-"use client";
-
-import { FormEvent, useState } from "react";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import NavBar from "@/components/navbar";
-import { cafes } from "@/constants/cafes";
+import ReservationForm from "@/components/ReservationForm";
+import ReservationHighlights from "@/components/ReservationHighlights";
 
 export default function ReservationPage() {
-	const [submitted, setSubmitted] = useState(false);
-
-	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		setSubmitted(true);
-	};
-
-	return (
-		<>
-			<NavBar />
-			<main className="min-h-screen bg-black pt-28 text-white">
-				<section className="border-b border-white/10 bg-linear-to-br from-black via-gray-950 to-gray-900 px-6 py-16 md:px-16 lg:px-24">
-					<div className="mx-auto max-w-6xl">
-						<nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/60">
-							<Link href="/" className="cursor-pointer transition hover:text-white">Home</Link>
-							<span className="mx-2">/</span>
-							<span className="text-white">Reservation</span>
-						</nav>
-						<p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-green-300">Alex Bar</p>
-						<h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">Make room for a good evening.</h1>
-						<p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65 md:text-xl">Choose your location, tell us when you are coming, and we will prepare your table.</p>
-					</div>
-				</section>
-				<section className="px-6 py-16 md:px-16 lg:px-24">
-					<div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.65fr)]">
-						<div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur sm:p-8">
-							{submitted ? (
-								<div className="flex min-h-105 flex-col items-center justify-center text-center">
-									<div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-400/20 text-3xl text-green-300">✓</div>
-									<p className="text-sm font-bold uppercase tracking-[0.2em] text-green-300">Request received</p>
-									<h2 className="mt-3 text-3xl font-black">Your table is on our list.</h2>
-									<p className="mt-4 max-w-md leading-relaxed text-white/65">We will contact you shortly to confirm the reservation details.</p>
-									<button type="button" onClick={() => setSubmitted(false)} className="mt-8 cursor-pointer rounded-lg border border-white/20 px-5 py-3 text-sm font-bold transition hover:border-white/50 hover:bg-white/10">Make another reservation</button>
-								</div>
-							) : (
-								<form onSubmit={handleSubmit} className="space-y-6">
-									<div>
-										<p className="text-sm font-bold uppercase tracking-[0.2em] text-white/45">Reservation details</p>
-										<h2 className="mt-2 text-3xl font-black">Find your table</h2>
-									</div>
-									<div className="grid gap-5 sm:grid-cols-2">
-										<label className="space-y-2 text-sm font-semibold text-white/80">Location
-											<select required defaultValue="" className="w-full cursor-pointer rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-yellow-300">
-												<option value="" disabled>Select a location</option>
-												{cafes.map((cafe) => <option key={cafe.id} value={cafe.city}>{cafe.city}</option>)}
-											</select>
-										</label>
-										<label className="space-y-2 text-sm font-semibold text-white/80">Guests
-											<select required defaultValue="2" className="w-full cursor-pointer rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-yellow-300">
-												{Array.from({ length: 8 }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count} {count === 1 ? "guest" : "guests"}</option>)}
-											</select>
-										</label>
-										<label className="space-y-2 text-sm font-semibold text-white/80">Date
-											<input required type="date" min={new Date().toISOString().split("T")[0]} className="w-full cursor-pointer rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-yellow-300" />
-										</label>
-										<label className="space-y-2 text-sm font-semibold text-white/80">Time
-											<select required defaultValue="" className="w-full cursor-pointer rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-yellow-300">
-												<option value="" disabled>Select a time</option>
-												{["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"].map((time) => <option key={time}>{time}</option>)}
-											</select>
-										</label>
-									</div>
-									<div className="h-px bg-white/10" />
-									<div className="grid gap-5 sm:grid-cols-2">
-										<label className="space-y-2 text-sm font-semibold text-white/80">Full name
-											<input required type="text" placeholder="Alex Johnson" className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-white/30 outline-none transition focus:border-yellow-300" />
-										</label>
-										<label className="space-y-2 text-sm font-semibold text-white/80">Email
-											<input required type="email" placeholder="alex@example.com" className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-white/30 outline-none transition focus:border-yellow-300" />
-										</label>
-									</div>
-									<label className="block space-y-2 text-sm font-semibold text-white/80">Special requests <span className="font-normal text-white/40">(optional)</span>
-										<textarea rows={4} placeholder="Birthday, dietary requirements, preferred seating..." className="w-full resize-none rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-white/30 outline-none transition focus:border-yellow-300" />
-									</label>
-									<button type="submit" className="w-full cursor-pointer rounded-xl bg-linear-to-r from-pink-400 via-yellow-400 to-green-400 px-6 py-4 font-black text-black shadow-lg transition hover:scale-[1.01] hover:shadow-yellow-300/20">Request reservation</button>
-								</form>
-							)}
-						</div>
-						<aside className="space-y-5">
-							<div className="rounded-3xl border border-yellow-300/20 bg-yellow-300/10 p-7">
-								<p className="text-2xl text-yellow-300">✦</p>
-								<h2 className="mt-5 text-2xl font-black">A good table matters.</h2>
-								<p className="mt-3 leading-relaxed text-white/65">For groups larger than eight, call us directly so we can arrange the right space for your evening.</p>
-							</div>
-							<div className="rounded-3xl border border-white/10 bg-white/5 p-7">
-								<h3 className="text-sm font-bold uppercase tracking-[0.2em] text-white/45">Opening hours</h3>
-								<p className="mt-4 text-xl font-bold">Monday - Sunday</p>
-								<p className="mt-1 text-white/65">10:00 - 23:00</p>
-								<p className="mt-6 text-sm leading-relaxed text-white/50">Reservations are requests until confirmed by our team.</p>
-							</div>
-						</aside>
-					</div>
-				</section>
-			</main>
-			<Footer />
-		</>
-	);
+    return (
+        <>
+            <NavBar />
+            <main className="min-h-screen bg-black pt-28 text-white">
+                <section className="border-b border-white/10 bg-linear-to-br from-black via-gray-950 to-gray-900 px-6 py-16 md:px-16 lg:px-24">
+                    <div className="mx-auto max-w-6xl">
+                        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/60">
+                            <Link href="/" className="cursor-pointer transition hover:text-white">Home</Link>
+                            <span className="mx-2">/</span>
+                            <span className="text-white">Reservation</span>
+                        </nav>
+                        <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-green-300">Alex Bar</p>
+                        <h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">Make room for a good evening.</h1>
+                        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65 md:text-xl">Choose your location, tell us when you are coming, and we will prepare your table.</p>
+                    </div>
+                </section>
+                <section className="px-6 py-16 md:px-16 lg:px-24">
+                    <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.65fr)]">
+                        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur sm:p-8">
+                            <ReservationForm />
+                        </div>
+                        <ReservationHighlights />
+                    </div>
+                </section>
+            </main>
+            <Footer />
+        </>
+    );
 }
