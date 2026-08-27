@@ -15,8 +15,8 @@ I wanted to build something more than just a "to-do list" or a counter app. A re
 - **Home** — The main landing page with a photo gallery, a short intro, upcoming events section, and an interactive map showing the bar's location
 - **Menu** — A full food & drink menu with category navigation on the sidebar and cards for each item
 - **Cafes** — A list of cafe locations, each with its own detail page
-- **Reservations** — A page for viewing table reservations *(in progress)*
-- **Register** — A user registration page *(in progress)*
+- **Reservations** — A dynamic table reservation request flow with live booking summary
+- **Register** — A responsive account registration prototype with password feedback
 
 ---
 
@@ -72,4 +72,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📌 Status
 
-The project is still in progress. Some pages (reservations, register, cafes detail) are not fully implemented yet. I'm working on them step by step while learning new tools and patterns.
+The frontend prototype is complete. Reservations and registration currently use client-side demo state; connecting them to authentication, availability checks, and persistent storage is the next production step.

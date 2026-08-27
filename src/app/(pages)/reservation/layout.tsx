@@ -1,4 +1,3 @@
-//TODO: add layout full-component's details of reservation's page
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
