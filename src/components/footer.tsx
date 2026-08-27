@@ -3,6 +3,7 @@
 import React from 'react';
 import { linksFot } from '@/constants/linksFot'
 import { IconType } from 'react-icons'
+import Link from 'next/link';
 
 export default function Footer() {
     return (
@@ -20,10 +21,10 @@ export default function Footer() {
                     <div className="flex flex-col gap-3">
                         <h4 className="text-sm font-semibold uppercase tracking-widest text-white/70">Quick Links</h4>
                         <ul className="space-y-2 text-sm text-white/60 hover:text-white">
-                            <li><a href="/#home" className="hover:text-white transition">Home</a></li>
-                            <li><a href="/#location" className="hover:text-white transition">Locations</a></li>
-                            <li><a href="/#menu" className="hover:text-white transition">Menu</a></li>
-                            <li><a href="/#events" className="hover:text-white transition">Events</a></li>
+                            <li><Link href="/#home" className="cursor-pointer hover:text-white transition">Home</Link></li>
+                            <li><Link href="/#location" className="cursor-pointer hover:text-white transition">Locations</Link></li>
+                            <li><Link href="/#menu" className="cursor-pointer hover:text-white transition">Menu</Link></li>
+                            <li><Link href="/#events" className="cursor-pointer hover:text-white transition">Events</Link></li>
                         </ul>
                     </div>
 
