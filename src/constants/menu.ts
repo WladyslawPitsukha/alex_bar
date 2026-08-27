@@ -1,5 +1,4 @@
 import { PropsMenuPage } from "@/types/propsMenu";
-//TODO: add params, which not write from type
 
 import Photo1Component1_1 from "../assets/imgs/menu/starters/bruschetta/bruschetta_1.jpg";
 import Photo1Component1_2 from "../assets/imgs/menu/starters/bruschetta/bruschetta_2.jpg";

@@ -18,12 +18,12 @@ export const navigationsParams: AccordionProps[] = [
             {
                 id: 3,
                 name: "Cafe Krakow",
-                link: "/cafe_1s",
+                link: "/cafes/krakow",
             },
             {
                 id: 4,
                 name: "Cafe Gdansk",
-                link: "/cafe_2",
+                link: "/cafes/gdansk",
             },
         ]
     },

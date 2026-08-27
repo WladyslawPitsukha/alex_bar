@@ -1,9 +1,5 @@
 'use client'
 
-//TODO: finish this component
-//TODO: change the library of mapping
-//TODO: change component for deleting "copying blocks"
-
 import { cafes } from "@/constants/cafes";
 import MapBlock from "./MapBlock";
 
