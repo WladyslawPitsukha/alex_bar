@@ -3,10 +3,24 @@ import { getNameFromSlug } from "@/utils/getNameSlug";
 import { notFound } from "next/navigation";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Image from "next/image";
+import Link from "next/link";
+import { photosOfCafe } from "@/constants/photosCafe";
+import type { Metadata } from "next";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params;
+    const cafe = cafes.find((item) => (item.slug ?? item.city).toLowerCase() === slug.toLowerCase());
+
+    return {
+        title: cafe ? `${cafe.title} | Alex Bar` : "Cafe | Alex Bar",
+        description: cafe?.info.description ?? "Discover Alex Bar locations across Poland.",
+    };
+}
 
 export function generateStaticParams() {
     return cafes.map((cafe) => ({
@@ -32,29 +46,48 @@ export default async function CafePage({ params }: Props) {
         <>
             <NavBar />
             <main className="min-h-screen bg-black text-white pt-20">
-                {/* Hero Header */}
-                <div className="relative w-full bg-linear-to-br from-black via-gray-900 to-black py-16 px-6 md:px-16 lg:px-24">
-                    <div className="max-w-6xl mx-auto">
-                        <div className="inline-block px-4 py-2 rounded-full bg-green-400/30 text-green-300 text-xs font-bold tracking-widest border border-green-400/50 mb-6">
+                <div className="relative min-h-128 overflow-hidden">
+                    <Image
+                        src={photosOfCafe[0].photo}
+                        alt={`${cafe.title} interior`}
+                        fill
+                        priority
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/65 to-black/30" />
+                    <div className="relative mx-auto flex min-h-128 max-w-6xl flex-col justify-center px-6 py-16 md:px-16 lg:px-8">
+                        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/60">
+                            <Link href="/" className="transition hover:text-white">Home</Link>
+                            <span className="mx-2">/</span>
+                            <Link href="/cafes" className="transition hover:text-white">Cafes</Link>
+                            <span className="mx-2">/</span>
+                            <span className="text-white">{cafe.city}</span>
+                        </nav>
+
+                        <div className="mb-6 inline-block w-fit rounded-full border border-green-400/50 bg-green-400/30 px-4 py-2 text-xs font-bold tracking-widest text-green-300">
                             ● ALEX BAR
                         </div>
                         
-                        <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-tight">
+                        <h1 className="mb-4 text-5xl font-black leading-tight tracking-tighter md:text-6xl">
                             {cafe.title}
                         </h1>
                         
-                        <p className="text-xl md:text-2xl text-white/80 mb-2">
+                        <p className="mb-2 text-xl text-white/80 md:text-2xl">
                             {cafe.city}
                         </p>
 
-                        <p className="text-lg text-white/60 mb-8">
+                        <p className="mb-8 text-lg text-white/60">
                             {displayName}
                         </p>
 
-                        <div className="flex items-center gap-3 text-yellow-400">
+                        <div className="mb-8 flex items-center gap-3 text-yellow-400">
                             <span className="text-2xl">★★★★★</span>
                             <span className="text-white text-lg font-semibold">{cafe.info.stars.toFixed(1)} Rating</span>
                         </div>
+
+                        <Link href="/reservation" className="w-fit rounded-lg bg-white px-6 py-3 font-bold text-black transition hover:bg-yellow-300">
+                            Reserve a table
+                        </Link>
                     </div>
                 </div>
 
@@ -64,6 +97,14 @@ export default async function CafePage({ params }: Props) {
                             <p className="text-white/60 text-sm font-semibold mb-3 uppercase tracking-widest">📍 Location</p>
                             <p className="text-2xl font-bold mb-2">{cafe.city}</p>
                             <p className="text-white/70">{cafe.address}</p>
+                            <a
+                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cafe.address)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-4 inline-block text-sm font-bold text-yellow-300 transition hover:text-white"
+                            >
+                                Get directions ↗
+                            </a>
                         </div>
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
@@ -74,8 +115,8 @@ export default async function CafePage({ params }: Props) {
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur hover:border-white/20 hover:bg-white/10 transition">
                             <p className="text-white/60 text-sm font-semibold mb-3 uppercase tracking-widest">📞 Contact</p>
-                            <p className="text-lg font-bold mb-2">{cafe.connection.phone}</p>
-                            <p className="text-white/70 text-sm">{cafe.connection.email}</p>
+                            <a href={`tel:${cafe.connection.phone}`} className="mb-2 block text-lg font-bold transition hover:text-yellow-300">{cafe.connection.phone}</a>
+                            <a href={`mailto:${cafe.connection.email}`} className="block text-sm text-white/70 transition hover:text-white">{cafe.connection.email}</a>
                         </div>
                     </div>
 
@@ -104,7 +145,7 @@ export default async function CafePage({ params }: Props) {
                                     Fun Fact
                                 </h3>
                                 <p className="text-white/80 leading-relaxed text-lg italic">
-                                    `${cafe.info.coolFacts}`
+                                    {cafe.info.coolFacts}
                                 </p>
                             </div>
                         </div>
@@ -155,7 +196,7 @@ export default async function CafePage({ params }: Props) {
                                         <span className="text-yellow-400 font-bold">⭐ {comment.comments.rating}</span>
                                     </div>
                                     <p className="text-white/70 leading-relaxed">
-                                        `${comment.comments.text}`
+                                        {comment.comments.text}
                                     </p>
                                 </div>
                             ))}

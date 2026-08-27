@@ -34,7 +34,7 @@ export default function MapBlock() {
                 <svg viewBox="0 0 400 300" className="w-full h-full">
                     <rect x="0" y="0" width="400" height="300" fill="#f3f4f6" />
                     <ellipse cx="200" cy="150" rx="160" ry="110" fill="#e5e7eb" />
-                    {cityPoints.map((pt, idx) => (
+                    {cityPoints.map((pt) => (
                         <circle
                             key={pt.name}
                             cx={pt.cx}

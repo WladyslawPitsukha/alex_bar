@@ -14,8 +14,10 @@ export async function generateMetadata({
   const cafeName = slug ? getNameFromSlug(slug) : "Cafes";
 
   return {
-    title: `Alex Bar / ${cafeName}`,
-    description: `Visit Alex Bar in ${cafeName}`,
+    title: `${cafeName} | Alex Bar`,
+    description: slug
+      ? `Discover ${cafeName} and visit Alex Bar in Poland.`
+      : "Discover Alex Bar cafes across Poland.",
   };
 }
 
